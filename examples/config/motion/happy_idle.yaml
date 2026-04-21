@@ -1,0 +1,11 @@
+filepath: examples/bvh/happy_idle.bvh
+start_frame_idx: 0
+end_frame_idx: 243
+groundplane_joint: mixamorig:LeftFoot
+forward_perp_joint_vectors:
+  - - mixamorig:LeftArm
+    - mixamorig:RightArm
+  - - mixamorig:LeftUpLeg
+    - mixamorig:RightUpLeg
+scale: 0.025
+up: +y
