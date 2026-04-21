@@ -1,0 +1,93 @@
+char_starting_location: [0.0, 0.0, -0.5]
+bvh_projection_bodypart_groups:
+  - bvh_joint_names:
+      - mixamorig:LeftShoulder
+      - mixamorig:LeftArm
+      - mixamorig:LeftForeArm
+      - mixamorig:LeftHand
+      - mixamorig:RightShoulder
+      - mixamorig:RightArm
+      - mixamorig:RightForeArm
+      - mixamorig:RightHand
+    method: pca
+    name: Upper Limbs
+  - bvh_joint_names:
+      - mixamorig:LeftUpLeg
+      - mixamorig:LeftLeg
+      - mixamorig:LeftFoot
+      - mixamorig:LeftToeBase
+      - mixamorig:RightUpLeg
+      - mixamorig:RightLeg
+      - mixamorig:RightFoot
+      - mixamorig:RightToeBase
+    method: pca
+    name: Lower Limbs
+  - bvh_joint_names:
+      - mixamorig:Hips
+      - mixamorig:Spine
+      - mixamorig:Spine1
+      - mixamorig:Spine2
+      - mixamorig:Neck
+      - mixamorig:Head
+    method: frontal
+    name: Trunk
+char_bodypart_groups:
+  - bvh_depth_drivers:
+      - mixamorig:Hips
+    char_joints:
+      - right_shoulder
+      - left_shoulder
+      - right_hip
+      - left_hip
+      - hip
+      - torso
+      - neck
+  - bvh_depth_drivers:
+      - mixamorig:LeftHand
+    char_joints:
+      - left_elbow
+      - left_hand
+  - bvh_depth_drivers:
+      - mixamorig:RightHand
+    char_joints:
+      - right_elbow
+      - right_hand
+  - bvh_depth_drivers:
+      - mixamorig:LeftFoot
+    char_joints:
+      - left_knee
+      - left_foot
+  - bvh_depth_drivers:
+      - mixamorig:RightFoot
+    char_joints:
+      - right_knee
+      - right_foot
+char_bvh_root_offset:
+  bvh_projection_bodypart_group_for_offset: Lower Limbs
+  bvh_joints:
+    - - mixamorig:RightFoot
+      - mixamorig:RightLeg
+      - mixamorig:RightUpLeg
+    - - mixamorig:LeftFoot
+      - mixamorig:LeftLeg
+      - mixamorig:LeftUpLeg
+  char_joints:
+    - - left_foot
+      - left_knee
+      - left_hip
+    - - right_foot
+      - right_knee
+      - right_hip
+char_joint_bvh_joints_mapping:
+  left_elbow: !!python/tuple [mixamorig:LeftArm, mixamorig:LeftForeArm]
+  left_foot: !!python/tuple [mixamorig:LeftLeg, mixamorig:LeftFoot]
+  left_hand: !!python/tuple [mixamorig:LeftForeArm, mixamorig:LeftHand]
+  left_knee: !!python/tuple [mixamorig:LeftUpLeg, mixamorig:LeftLeg]
+  torso: !!python/tuple [mixamorig:Hips, mixamorig:Spine2]
+  neck: !!python/tuple [mixamorig:Hips, mixamorig:Neck]
+  right_elbow: !!python/tuple [mixamorig:RightArm, mixamorig:RightForeArm]
+  right_foot: !!python/tuple [mixamorig:RightLeg, mixamorig:RightFoot]
+  right_hand: !!python/tuple [mixamorig:RightForeArm, mixamorig:RightHand]
+  right_knee: !!python/tuple [mixamorig:RightUpLeg, mixamorig:RightLeg]
+char_runtime_checks:
+  - [above, neck, right_shoulder, left_shoulder]
